@@ -1,0 +1,148 @@
+body{
+    font-family: geometric, sans-serif;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(228, 228, 228);
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    .nav{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            margin-right: 100px; /* Ajoute une marge à droite pour l'espace */
+        }
+    }
+    img {
+        width: 40%;
+        height: 40%;
+    }
+    a {
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+        margin-left: auto; /* Met les balises <a> à droite */
+        margin-right: 10px; /* Ajoute une marge à droite pour l'espace */
+    }
+}
+
+.page {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+%heb-pop{
+    background-color: rgb(228, 228, 228);
+    margin-top: 20px;
+    border-radius: 20px;
+    padding: 20px;
+    h1, h2 {
+        margin-left: 10px;
+    }
+}
+
+%card--lg{
+    background-color: white;
+    margin: 10px;
+    padding: 4px;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgb(146, 146, 146);
+    h2{
+        font-size: 1.1em;
+        margin: 0 0 0 5px;
+    }
+    p{
+        margin: 0 0 0 5px;
+    }
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+.hebergement {
+    @extend %heb-pop;
+    width: 900px;
+    .card {
+        @extend %card--lg;
+        width: 250px;
+        height: 200px;
+
+        img {
+            width: 250px;
+            height: 125px;
+            object-fit: cover;
+            object-position: center;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.populaire {
+    @extend %heb-pop;
+    width: 400px;
+    .card {
+        @extend %card--lg;
+        display: flex;
+        width: 500px;
+        height: 125px;
+        img {
+            width: 150px;
+            height: 125px;
+            object-fit: cover;
+            object-position: center;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .nav{
+        a{
+            margin-right: 0px;
+        }
+    }
+    .card {
+        width: 100%;
+    }
+    .page {
+        flex-direction: column-reverse;
+    }
+    .hebergement {
+        background-color: white;
+        width: 90%;
+        .card{
+            width: 100%;
+            img{
+                width: 100%;
+            }
+        }
+    }
+    .populaire {
+        width: 90%;
+        border-radius: 0%;
+    }
+}
